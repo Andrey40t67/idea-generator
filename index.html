@@ -1,0 +1,97 @@
+# idea-generator<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор Идей</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            outline: none;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .idea {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Генератор Идей</h1>
+        <input type="text" id="keyword" placeholder="Введите ключевое слово..." />
+        <button onclick="generateIdea()">Сгенерировать идею</button>
+        <div class="idea" id="idea"></div>
+    </div>
+    <script>
+        const ideas = [
+            "Создать приложение для {keyword}, которое поможет пользователям отслеживать их ежедневные задачи.",
+            "Разработать веб-сайт для {keyword}, где пользователи смогут делиться своими историями и опытом.",
+            "Создать онлайн-курсы по {keyword}, чтобы обучать людей новым навыкам.",
+            "Запустить блог о {keyword}, где будут публиковаться статьи и новости по этой теме.",
+            "Создать платформу для {keyword}, которая поможет людям находить единомышленников и обмениваться идеями.",
+            "Разработать мобильное приложение для {keyword}, которое будет предоставлять пользователям полезную информацию.",
+            "Создать подкаст о {keyword}, чтобы делиться своими знаниями и приглашать экспертов для обсуждения.",
+            "Разработать игру на тему {keyword}, которая будет увлекательной и познавательной.",
+            "Создать видеоканал на YouTube о {keyword}, где будут публиковаться обзоры, советы и интервью.",
+            "Запустить проект по {keyword}, который поможет улучшить жизнь людей в этой сфере."
+        ];
+
+        function generateIdea() {
+            const keyword = document.getElementById("keyword").value;
+            if (keyword) {
+                const randomIndex = Math.floor(Math.random() * ideas.length);
+                const idea = ideas[randomIndex].replace("{keyword}", keyword);
+                document.getElementById("idea").textContent = idea;
+            } else {
+                document.getElementById("idea").textContent = "Пожалуйста, введите ключевое слово!";
+            }
+        }
+    </script>
+</body>
+</html>
